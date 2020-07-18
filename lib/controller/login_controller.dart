@@ -9,16 +9,11 @@ class LoginController extends ResourceController {
   @Operation.get('username', 'password')
   Future<Response> loginUser(@Bind.path('username') String username,
       @Bind.path('password') String password) async {
-    print("===hello-----");
     final loginQuery = Query<LoginRegistration>(context)
       ..where((h) => h.mobileNumber).equalTo(username)
       ..where((h) => h.password).equalTo(password);
 
-    print("====>${loginQuery.toString()}");
-
     final user = await loginQuery.fetchOne();
-
-    print("====>userssss---->${user.toString()}");
 
     if (user == null) {
       return Response.ok({"user": {}, "status": false});

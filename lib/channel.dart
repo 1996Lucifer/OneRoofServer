@@ -1,3 +1,5 @@
+import 'package:one_roof_server/controller/device_info_controller.dart';
+import 'package:one_roof_server/controller/flats_info_controller.dart';
 import 'package:one_roof_server/controller/login_controller.dart';
 import 'package:one_roof_server/controller/registeration_controller.dart';
 
@@ -58,7 +60,8 @@ class OneRoofServerChannel extends ApplicationChannel {
         .link(() => LoginController(context));
 
     router.route("/api/register").link(() => RegisterationController(context));
-
+    router.route("/api/deviceInfo").link(() => DeviceInfoController(context));
+    router.route("/api/flatsInfo").link(()=> FlatsInfoController(context));
     return router;
   }
 }
