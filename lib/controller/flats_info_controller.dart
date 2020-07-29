@@ -10,7 +10,7 @@ class FlatsInfoController extends ResourceController {
     // final Map<String, dynamic> mapData = {"flatInfo": {}};
     final List<Map<String, dynamic>> mapDataList = [];
     final flatQuery = await Query<FlatsInfo>(context).fetch();
-    print("flatquery====> $flatQuery");
+    // print("flatquery====> $flatQuery");
     if (flatQuery == null || flatQuery == [])
       return Response.ok({"flats": {}, "status": false});
 
@@ -19,7 +19,7 @@ class FlatsInfoController extends ResourceController {
       // mapData['flatInfo'] = element.flatInfo.data;
       mapDataList.add({"flatId": element.flatId,"flatInfo": element.flatInfo.data});
     });
-    print(mapDataList);
+    // print(mapDataList);
     return Response.ok({"flats": mapDataList, "status": true});
   }
 }
