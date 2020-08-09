@@ -24,3 +24,9 @@ See the documentation for [Deployment](https://aqueduct.io/docs/deploy/).
 ## Migration Step
 
 aqueduct db upgrade --connect postgres://one_roof_user:one_roof_password@localhost:5432/one_roof
+
+##Database Step
+
+CREATE DATABASE one_roof;
+CREATE USER one_roof_user WITH PASSWORD 'one_roof_password';
+GRANT ALL ON DATABASE one_roof TO one_roof_user;
