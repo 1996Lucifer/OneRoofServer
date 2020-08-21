@@ -22,7 +22,13 @@ class Migration2 extends Migration {
           autoincrement: false,
           isIndexed: false,
           isNullable: false,
-          isUnique: true)
+          isUnique: true),
+      SchemaColumn("deviceName", ManagedPropertyType.string,
+          isPrimaryKey: false,
+          autoincrement: false,
+          isIndexed: false,
+          isNullable: false,
+          isUnique: false)
     ]));
   }
 
@@ -32,11 +38,12 @@ class Migration2 extends Migration {
   @override
   Future seed() async {
     await database.store.execute(
-        "INSERT INTO _DeviceInfo (mobileNumber,deviceType,deviceId) VALUES (@mobileNumber,@deviceType,@deviceId)",
+        "INSERT INTO _DeviceInfo (mobileNumber,deviceType,deviceId,deviceName) VALUES (@mobileNumber,@deviceType,@deviceId,@deviceName)",
         substitutionValues: {
           "mobileNumber": "9634592428",
-          "deviceType": "Android",
-          "deviceId": "qeq234qet3vcgv54cbrtcxrvrt"
+          "deviceType": "android",
+          "deviceId": "76da3285e7d3c5f5",
+          "deviceName": "ONEPLUS A6010"
         });
   }
 }

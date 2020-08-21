@@ -12,7 +12,6 @@ class DeviceInfoController extends ResourceController {
       ..where((x) => x.mobileNumber).equalTo(deviceInfo.mobileNumber);
 
     final deviceDetails = await checkQuery.fetchOne();
-    print("checkQuery===> ${deviceDetails}");
     if (deviceDetails != null)
       return Response.ok({"status": "information already present"});
     else {

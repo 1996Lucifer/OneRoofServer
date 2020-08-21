@@ -7,10 +7,10 @@ class RegisterationController extends ResourceController {
 
   @Operation.post()
   Future<Response> registerUser() async {
-    print("body==> ${request.body.toString()}");
+    // print("body==> ${request.body.toString()}");
     final registeration = LoginRegistration()
       ..read(await request.body.decode());
-    print("ewuiriwereiy===> ${registeration.asMap()}");
+    // print("ewuiriwereiy===> ${registeration.asMap()}");
     final query = Query<LoginRegistration>(context)
       // ..values.fullName = registeration.fullName
       // ..values.emailId = registeration.emailId
@@ -19,10 +19,10 @@ class RegisterationController extends ResourceController {
       // ..values.profilePicture = registeration.profilePicture
       ..values = registeration
       ..values.timeStamp = DateTime.now();
-    print("123123123123===> ${query.context.dataModel.entities}");
+    // print("123123123123===> ${query.context.dataModel.entities}");
 
     final insertedRegisteration = await query.insert();
-    print("insertedRegisteration===> ${insertedRegisteration}");
+    // print("insertedRegisteration===> ${insertedRegisteration}");
 
     if (insertedRegisteration == null) {
       return Response.ok({"status": 0});

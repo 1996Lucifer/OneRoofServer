@@ -11,4 +11,7 @@ class _DeviceInfo {
 
   @Column(unique: true, nullable: false)
   String deviceId;
+
+  @Column(nullable: false)
+  String deviceName;
 }
